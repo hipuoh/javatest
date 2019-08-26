@@ -23,6 +23,7 @@
 <body>
 <%
 	String sessionId = (String)session.getAttribute("sessionId");
+//세션 아이디를 가져와서 해당 아이디의 장바구니 목록을 가져옴
 %>
 <sql:setDataSource
 			url="jdbc:mysql://127.0.0.1:3306/springdb?serverTimezone=UTC"
@@ -33,6 +34,7 @@
 <sql:query dataSource="${dataSource}" var="resultSet">
 select * from cart where userid1=?
 <sql:param value="<%=sessionId %>" />
+<!-- 디비에 접속해서 유저명으로 검색해서 해당 유저의 정보만 표시할 수 있게 함 -->
 </sql:query>
 <jsp:include page="menu.jsp"></jsp:include>
 <div class="jumbotron">

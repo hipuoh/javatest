@@ -2,7 +2,7 @@
     pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
-	String sessionId = (String)session.getAttribute("sessionId");
+	String sessionId = (String)session.getAttribute("sessionId"); //세션아이디를 가져와서 저장함.
 %>
 <!DOCTYPE html>
 <html>
@@ -24,7 +24,12 @@
 			<ul class="navbar-nav mr-auto">
 				<c:choose>
 					<c:when test="${empty sessionId}">
-						<li class="nav-item"><a class="nav-link" href="<c:url value="/member/loginMember.jsp" />">로그인</a></li>
+					<!-- c:url는 상대주소를 절대주소처럼 사용 할수있게 해주는 jstl 문법
+					예를 들어 로그인창에서 상품정보를 볼때 ../JSP/products.jsp가 되야 하지만
+					welcome에서는 ./products.jsp가 되는게 상대주소 
+					위의 c:when 에서 세션 아이디가 없을경우 아이디를 표시하지 않게 하고 otherwise에서 아이디값을 표현해주게 함  
+					if else 구문으로 생각하면 되고 when otherwise는 choose 구문 안에 존재해야함-->
+						<li class="nav-item"><a class="nav-link" href="<c:url value="/member/loginMember.jsp" />">로그인</a></li> 
 						<li class="nav-item"><a class="nav-link" href="<c:url value="/member/addMember.jsp" />">회원가입</a></li>
 					</c:when>
 					<c:otherwise>

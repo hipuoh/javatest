@@ -23,8 +23,9 @@ function clock() {
     	am_pm="PM";
     }
     divClock.innerText = "현재 접속시간 " + am_pm + " " + time +  "시" + current.getMinutes() + "분" + current.getSeconds() + "초";
+    /* 새로고침 없이 시간을 실시간으로 표현하기 위해서 기본 내장 함수인 innerText함수를 사용해서 시간을 표현함 */
 }
-setInterval(clock, 500);
+setInterval(clock, 500);/*내부적으로 새로 고침하는 시간 500 => 0.5초*/
 </script>
 
 <title>Insert title here</title>

@@ -15,6 +15,7 @@
 <sql:query dataSource="${dataSource}" var="resultSet">
 	select * from product 
 </sql:query>
+<!-- 디비에 연결해서 프로덕트 테이블에 있는 값을 resultSet에 저장함 -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,9 +27,6 @@
 <title>상품 목록</title>
 </head>
 <body>
-<%
-	String path ="C:/Users/yj-605-06/eclipse-workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/yangjungMarket/FileUpload/imgFiles";
-%>
 	<jsp:include page="menu.jsp"></jsp:include>
 	<div class="jumbotron">
 		<div class="container">
@@ -38,8 +36,9 @@
 	<div class="container">
 		<div class="row" align="center">
 			<c:forEach var="row" items="${resultSet.rows}">
+			<!-- while(rs.next()) 와 같은 기능을 해주도록 포이치문 작성 row라는 이름으로 데이터베이스 테이블값에 접근 가능해짐 var="이름"으로 씀 -->
 			<div class="col-md-5">
-				<img  src="../FileUpload/imgFiles/${row.filename}" width="200px" height="200px">
+				<img  src="../FileUpload/imgFiles/${row.filename}" width="200px" height="200px"> <!-- 실제 이클립스에서는 이미지가 나오지 않지만 내부적으로 접근해서 이미지를 가져옴 -->
 				<c:set var="productId" value='${row.productId }' />
 				<h3><c:out value='${productId }' /></h3>
 				<p><c:out value='${row.description}' />
