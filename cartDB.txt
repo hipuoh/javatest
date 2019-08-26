@@ -1,0 +1,9 @@
+CREATE TABLE `cart` (
+  `number` int(11) NOT NULL AUTO_INCREMENT,
+  `productId` varchar(20) COLLATE utf8_bin DEFAULT NULL,
+  `name` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
+  `stock` int(11) DEFAULT NULL,
+  `userid1` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`number`)
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COLLATE=utf8_bin
